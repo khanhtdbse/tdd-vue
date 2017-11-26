@@ -1,16 +1,32 @@
 <template>
   <div>
       <h1>{{ msg }}</h1>
+      <h2>{{ count }}</h2>
+      <button-component 
+          @incrementButtonHasBeenClicked="increment()" 
+          @decrementButtonHasBeenClicked="decrement()" 
+      />
   </div>
 </template>
 
 <script>
+import ButtonComponent from './ButtonComponent.vue'
 export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to my first TDD :)'
+      msg: 'Welcome to my first TDD :)',
+      count: 0
     }
+  },
+  components: { ButtonComponent },
+  methods: {
+    increment() {
+        this.count++
+    },
+    decrement() {
+        this.count--
+    },
   }
 }
 </script>
